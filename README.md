@@ -156,6 +156,7 @@ Choose the guide that fits your work:
 - **[Content Creator](tutorials/content-creator.md)** — Scripts, feedback, performance tracking
 - **[University Professor](tutorials/university-professor.md)** — Research, teaching, advising, grants
 - **[Operations Manager](tutorials/operations-manager.md)** — Processes, vendors, incidents
+- **[IT Systems Admin](tutorials/it-systems-admin.md)** — Security incidents, AD, scripting, deployments
 - **[Customer Success](tutorials/customer-success.md)** — Accounts, renewals, customer health
 - **[Marketing](tutorials/marketing.md)** — Campaigns, content, launches
 - **[General Professional](tutorials/general-professional.md)** — Works for any role
