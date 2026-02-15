@@ -1,0 +1,115 @@
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.learning-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.learning-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.learning-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.15);
+  transform: translateY(-5px);
+}
+
+.learning-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.learning-card h3 {
+  color: var(--accent-primary);
+  font-size: 1.15rem;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.status-badge.in-progress {
+  background: rgba(20, 184, 166, 0.15);
+  color: var(--accent-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.status-badge.completed {
+  background: rgba(20, 184, 166, 0.25);
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+}
+
+.learning-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.progress-bar {
+  background: rgba(20, 184, 166, 0.1);
+  height: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-muted), var(--accent-primary));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.75rem;
+  transition: width 0.5s ease;
+  min-width: 3rem;
+}
+
+.progress-text {
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.completed-date {
+  color: var(--accent-secondary);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .learning-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-card {
+    padding: 1.5rem;
+  }
+
+  .learning-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

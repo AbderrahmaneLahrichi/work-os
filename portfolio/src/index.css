@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-bg: #111827;
+  --secondary-bg: #1e293b;
+  --accent-primary: #14b8a6;
+  --accent-secondary: #5eead4;
+  --accent-muted: #0f766e;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --border-subtle: rgba(20, 184, 166, 0.15);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(20, 184, 166, 0.3);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-muted);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}

@@ -1,0 +1,37 @@
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  text-align: center;
+}
+
+.contact-item i {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.contact-item a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: var(--accent-primary);
+}
+
+.contact-item span {
+  color: var(--text-primary);
+}
+
+@media (max-width: 600px) {
+  .contact-info {
+    gap: 2rem;
+  }
+}
