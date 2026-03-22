@@ -1,0 +1,13 @@
+backend/.env
+backend/data/*.json
+!backend/data/.gitkeep
+backend/__pycache__/
+backend/**/__pycache__/
+backend/services/__pycache__/
+backend/scripts/__pycache__/
+*.pyc
+venv/
+.venv/
+node_modules/
+frontend/dist/
+.DS_Store

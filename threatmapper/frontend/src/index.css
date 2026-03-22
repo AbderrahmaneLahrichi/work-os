@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode (default) */
+:root {
+  --color-bg:           #0d1117;
+  --color-surface:      #161b22;
+  --color-border:       #30363d;
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #8b949e;
+
+  --cell-empty:    #21262d;
+  --cell-low:      rgba(37, 99, 180, 0.75);
+  --cell-medium:   rgba(161, 128, 0, 0.85);
+  --cell-high:     rgba(200, 90, 20, 0.9);
+  --cell-critical: rgba(200, 30, 30, 0.95);
+}
+
+/* Light mode */
+.light {
+  --color-bg:           #f6f8fa;
+  --color-surface:      #ffffff;
+  --color-border:       #d0d7de;
+  --color-text-primary: #1f2328;
+  --color-text-secondary: #636c76;
+
+  --cell-empty:    #eaeef2;
+  --cell-low:      rgba(37, 99, 180, 0.18);
+  --cell-medium:   rgba(161, 128, 0, 0.2);
+  --cell-high:     rgba(200, 90, 20, 0.22);
+  --cell-critical: rgba(200, 30, 30, 0.22);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #30363d #0d1117;
+}
+
+.light * {
+  scrollbar-color: #d0d7de #f6f8fa;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #484f58;
+}
+
+.matrix-cell {
+  background-color: var(--cell-empty);
+  border: 1px solid #21262d;
+  border-radius: 3px;
+  padding: 4px 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.matrix-cell:hover {
+  border-color: #58a6ff;
+  transform: scale(1.02);
+  z-index: 10;
+  position: relative;
+}
+
+.matrix-cell.score-low {
+  background-color: var(--cell-low);
+  border-color: rgba(37, 99, 180, 0.5);
+}
+
+.matrix-cell.score-medium {
+  background-color: var(--cell-medium);
+  border-color: rgba(161, 128, 0, 0.6);
+}
+
+.matrix-cell.score-high {
+  background-color: var(--cell-high);
+  border-color: rgba(200, 90, 20, 0.7);
+}
+
+.matrix-cell.score-critical {
+  background-color: var(--cell-critical);
+  border-color: rgba(200, 30, 30, 0.8);
+}
+
+.matrix-cell.score-low:hover,
+.matrix-cell.score-medium:hover,
+.matrix-cell.score-high:hover,
+.matrix-cell.score-critical:hover {
+  filter: brightness(1.2);
+  border-color: #58a6ff;
+}
