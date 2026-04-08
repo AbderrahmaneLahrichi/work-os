@@ -18,7 +18,7 @@ function Learning() {
         {learningItems.map((item, index) => (
           <div
             key={item.id}
-            className="learning-card"
+            className={`learning-card${item.status === 'completed' ? ' completed' : ''}`}
             ref={el => cardsRef.current[index] = el}
           >
             <div className="learning-header">
@@ -27,6 +27,11 @@ function Learning() {
                 {item.status === 'completed' ? 'Completed' : 'In Progress'}
               </span>
             </div>
+            {item.badgeUrl && (
+              <div className="cert-badge-wrapper">
+                <img src={item.badgeUrl} alt={`${item.title} badge`} className="cert-badge" />
+              </div>
+            )}
             <p>{item.description}</p>
             <div className="progress-bar">
               <div
