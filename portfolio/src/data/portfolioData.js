@@ -743,6 +743,7 @@ DeviceTvmSecureConfigurationAssessment
 export const learningItems = [
   {
     id: 1,
+    group: 'microsoft',
     title: 'AZ-900: Microsoft Azure Fundamentals',
     progress: 100,
     status: 'completed',
@@ -752,19 +753,22 @@ export const learningItems = [
   },
   {
     id: 2,
+    group: 'microsoft',
     title: 'SC-200: Microsoft Security Operations Analyst',
     progress: 66,
     status: 'in-progress',
     completedDate: null,
-    description: 'Studying for SC-200. Over halfway through material; practicing KQL and Advanced Hunting queries alongside coursework.',
+    description: 'Over halfway through the SC-200 material. Core focus: Microsoft Sentinel, Defender for Endpoint, Defender for Office 365, KQL threat hunting, and incident response — tools I used daily in production at Microsoft.',
     badgeUrl: 'https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg'
   },
   {
     id: 3,
+    group: 'comptia',
     title: 'CompTIA Security+ (SY0-701)',
     progress: 75,
     status: 'in-progress',
     completedDate: null,
-    description: 'Studying for the SY0-701 exam. Working through practice tests before scheduling.'
+    description: 'Studying CompTIA\'s vendor-neutral security certification covering threat analysis, cryptography, network security, and compliance frameworks. Complements my Microsoft stack depth with broader industry fundamentals.',
+    badgeUrl: 'https://images.credly.com/size/340x340/images/74790a75-8451-400a-8536-92d792c5184a/CompTIA_Security_2Bce.png'
   }
 ]
