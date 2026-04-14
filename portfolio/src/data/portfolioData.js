@@ -769,6 +769,6 @@ export const learningItems = [
     status: 'in-progress',
     completedDate: null,
     description: 'Studying CompTIA\'s vendor-neutral security certification covering threat analysis, cryptography, network security, and compliance frameworks. Complements my Microsoft stack depth with broader industry fundamentals.',
-    badgeUrl: 'https://images.credly.com/size/340x340/images/74790a75-8451-400a-8536-92d792c5184a/CompTIA_Security_2Bce.png'
+    badgeUrl: 'https://images.credly.com/images/d3cb5ac3-8bd2-471a-a27c-f447bf16da47/blob'
   }
 ]

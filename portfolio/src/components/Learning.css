@@ -1,20 +1,7 @@
-.learning-groups {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
 .learning-grid {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-}
-
-.learning-grid-microsoft {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.learning-grid-comptia {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .learning-card {
@@ -129,9 +116,8 @@
   border-color: rgba(20, 184, 166, 0.4);
 }
 
-@media (max-width: 600px) {
-  .learning-grid-microsoft,
-  .learning-grid-comptia {
+@media (max-width: 768px) {
+  .learning-grid {
     grid-template-columns: 1fr;
   }
 

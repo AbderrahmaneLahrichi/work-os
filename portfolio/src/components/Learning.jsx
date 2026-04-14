@@ -11,9 +11,6 @@ function Learning() {
     return cleanup
   }, [])
 
-  const microsoftItems = learningItems.filter(i => i.group === 'microsoft')
-  const comptiaItems = learningItems.filter(i => i.group === 'comptia')
-  const allGroups = [microsoftItems, comptiaItems]
   let cardIndex = 0
 
   const renderCard = (item) => {
@@ -54,13 +51,8 @@ function Learning() {
   return (
     <section id="learning" className="section">
       <h2 className="section-title">Certifications</h2>
-      <div className="learning-groups">
-        <div className="learning-grid learning-grid-microsoft">
-          {microsoftItems.map(renderCard)}
-        </div>
-        <div className="learning-grid learning-grid-comptia">
-          {comptiaItems.map(renderCard)}
-        </div>
+      <div className="learning-grid">
+        {learningItems.map(renderCard)}
       </div>
     </section>
   )
