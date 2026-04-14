@@ -15,6 +15,14 @@ export const education = [
     school: 'University of Washington',
     location: 'Seattle, WA',
     graduated: 'December 2021'
+  },
+  {
+    id: 2,
+    degree: "Associate's Degree",
+    field: 'Electrical, Electronics and Communications Engineering',
+    school: 'Bellevue College',
+    location: 'Bellevue, WA',
+    graduated: 'June 2019'
   }
 ]
 
@@ -24,7 +32,7 @@ export const experiences = [
     title: 'Security and Compliance Engineer',
     company: 'Microsoft',
     location: 'Bellevue, WA',
-    period: 'September 2024 - Present',
+    period: 'September 2024 - August 2025',
     summary: 'One of three founding engineers on the Security and Compliance practice. Subject Matter Expert for Defender for Office 365 and Purview.',
     responsibilities: [
       'Founding engineer on the Security and Compliance practice at Microsoft. Built team processes from scratch and mentored every engineer who joined.',
@@ -86,7 +94,7 @@ export const experiences = [
   },
   {
     id: 3,
-    title: 'IT Support Lead',
+    title: 'IT Customer Support',
     company: 'Bellevue College',
     location: 'Bellevue, WA',
     period: 'December 2018 - December 2023',
@@ -206,20 +214,6 @@ export const projects = [
     github: 'https://github.com/AbderrahmaneLahrichi/M365Automation',
     slug: '/projects/m365-automation'
   },
-  {
-    id: 1,
-    title: 'Blackjack Game',
-    description: 'A player vs. computer blackjack game built with a standard 52 card deck. Features card shuffling, hit/stand mechanics, and dealer AI that plays by standard casino rules.',
-    technologies: ['Python', 'Pygame'],
-    github: 'https://github.com/AbderrahmaneLahrichi/Blackjack_Game'
-  },
-  {
-    id: 2,
-    title: 'Tic Tac Toe',
-    description: 'A two-player tic tac toe game with a visual interface. Players take turns clicking to place X or O, with win detection and tie announcements.',
-    technologies: ['Python', 'Pygame'],
-    github: 'https://github.com/AbderrahmaneLahrichi/Tic_Tac_Toe-Game'
-  }
 ]
 
 export const kqlQueries = [
@@ -758,6 +752,15 @@ export const learningItems = [
   },
   {
     id: 2,
+    title: 'SC-200: Microsoft Security Operations Analyst',
+    progress: 66,
+    status: 'in-progress',
+    completedDate: null,
+    description: 'Studying for SC-200. Over halfway through material; practicing KQL and Advanced Hunting queries alongside coursework.',
+    badgeUrl: 'https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg'
+  },
+  {
+    id: 3,
     title: 'CompTIA Security+ (SY0-701)',
     progress: 75,
     status: 'in-progress',
