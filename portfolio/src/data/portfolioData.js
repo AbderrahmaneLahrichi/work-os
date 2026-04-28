@@ -28,6 +28,29 @@ export const education = [
 
 export const experiences = [
   {
+    id: 4,
+    title: 'Founder',
+    company: 'Grali',
+    location: 'Bellevue, WA',
+    period: 'September 2025 - Present',
+    summary: 'Founded Grali, an AI-powered security implementation tool that generates prescriptive, phase-based roadmaps from a declarative questionnaire about an organization\'s existing stack.',
+    responsibilities: [
+      'Conceived and designed Grali, a security implementation tool for IT leads and security admins generating prescriptive, phase-based roadmaps from their existing stack.',
+      'Designed the 9-step questionnaire covering identity, cloud, endpoints, network, SIEM, AppSec, and data protection — using real product names, not capability abstractions.',
+      'Defined the AI output format and constraints: implementation guides a team can execute, not gap analyses. Iterated on the prompt until outputs matched production-grade expectations.',
+      'Validated recommendations against real enterprise environments from prior Microsoft work to ensure the tool produces actionable guidance, not generic advice.'
+    ],
+    technicalSkills: [
+      'Prompt Engineering',
+      'AI-Assisted Development',
+      'Product Design',
+      'Security Architecture'
+    ],
+    softSkills: ['Product Vision', 'Requirements Definition', 'Domain Validation'],
+    frameworks: [],
+    frameworkNote: null
+  },
+  {
     id: 1,
     title: 'Security and Compliance Engineer',
     company: 'Microsoft',
