@@ -20,9 +20,8 @@ function Hero() {
           <h1>{personalInfo.name}</h1>
           <p className="hero-subtitle">Microsoft 365 Engineer &nbsp;·&nbsp; Endpoint Security &nbsp;·&nbsp; Security &amp; Compliance</p>
           <div className="hero-bio">
-            <p>I started in IT at Bellevue College doing the basics: imaging machines, managing Active Directory, handling hardware and connectivity issues for students and staff across campus. Five years of that work gave me the kind of systems depth that most security engineers skip past.</p>
-            <p>At Microsoft I moved into endpoint security, became the team's SME for Defender for Endpoint, handled Tier 2/3 escalations, wrote the playbooks, and mentored over a dozen engineers. When the Security and Compliance practice launched, I was one of three people who built it from nothing. Most of my time at Microsoft was spent inside GCC and GCC High tenants: Entra ID, Conditional Access, Exchange Online, DLP, sensitivity labels, Purview, Intune, KQL threat hunting.</p>
-            <p>Currently focused on the cloud security and administration side. Certified in Azure Fundamentals, pursuing Security+ and MS-102.</p>
+            <p>At Microsoft I was one of three founding engineers on the Security and Compliance practice, built the playbooks, and became the SME for Defender for Office 365 and Purview. The year before that I worked endpoint security incident response: customers came in with active incidents and I investigated alongside them, pulling device logs from Event Viewer, collecting network traces, running KQL hunts in Advanced Hunting, and triaging suspicious files. The other side of that work was making sure MDE was deployed correctly and devices were reporting clean telemetry. Nearly all of it was inside GCC and GCC High tenants. That work was grounded in five years of IT administration at Bellevue College, where I managed endpoints, Active Directory, and device lifecycle across campus.</p>
+            <p>Currently building Grali, an AI-powered tool that generates prescriptive, phase-based security implementation roadmaps from an organization's existing stack. Certified in Azure Fundamentals, pursuing SC-200 and Security+.</p>
           </div>
           <div className="cta-buttons">
             <button className="btn" onClick={() => setShowContact(true)}>
