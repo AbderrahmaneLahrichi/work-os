@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { personalInfo, experiences, education, skillCategories } from '../data/portfolioData'
+import { personalInfo, experiences, education, skillCategories, learningItems } from '../data/portfolioData'
 import './ResumeModal.css'
 
 function ResumeModal({ onClose }) {
@@ -19,9 +19,19 @@ function ResumeModal({ onClose }) {
     if (e.target === e.currentTarget) onClose()
   }
 
-  const coreSkills = skillCategories
-    .filter(cat => ['Microsoft 365 & Cloud', 'Security Tools', 'Scripting & Automation'].includes(cat.name))
-    .flatMap(cat => cat.skills)
+  const coreSkills = [
+    ...new Set(
+      skillCategories
+        .filter(cat => [
+          'Microsoft 365 & Cloud',
+          'Security Tools',
+          'Security & Compliance',
+          'Compliance Frameworks',
+          'Scripting & Automation'
+        ].includes(cat.name))
+        .flatMap(cat => cat.skills)
+    )
+  ]
 
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
@@ -62,7 +72,7 @@ function ResumeModal({ onClose }) {
                   <span className="resume-period">{exp.period}</span>
                 </div>
                 <ul className="resume-bullets">
-                  {exp.responsibilities.map((r, i) => (
+                  {(exp.resumeBullets || exp.responsibilities).map((r, i) => (
                     <li key={i}>{r}</li>
                   ))}
                 </ul>
@@ -80,6 +90,22 @@ function ResumeModal({ onClose }) {
                     <span className="resume-company"> — {edu.school}</span>
                   </div>
                   <span className="resume-period">{edu.graduated}</span>
+                </div>
+              </div>
+            ))}
+          </section>
+
+          <section className="resume-section">
+            <h2>Certifications</h2>
+            {learningItems.map(cert => (
+              <div key={cert.id} className="resume-edu-item">
+                <div className="resume-exp-header">
+                  <div>
+                    <span className="resume-job-title">{cert.title}</span>
+                  </div>
+                  <span className="resume-period">
+                    {cert.status === 'completed' ? cert.completedDate : 'In Progress'}
+                  </span>
                 </div>
               </div>
             ))}

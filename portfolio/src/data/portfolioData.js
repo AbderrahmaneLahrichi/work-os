@@ -34,6 +34,9 @@ export const experiences = [
     location: 'Bellevue, WA',
     period: 'September 2025 - Present',
     summary: 'Founded Grali, an AI-powered security implementation tool that generates prescriptive, phase-based roadmaps from a declarative questionnaire about an organization\'s existing stack.',
+    resumeBullets: [
+      'Founded Grali, an AI-powered tool that generates prescriptive, phase-based security implementation roadmaps from an organization\'s existing stack.'
+    ],
     responsibilities: [
       'Conceived and designed Grali, a security implementation tool for IT leads and security admins generating prescriptive, phase-based roadmaps from their existing stack.',
       'Designed the 9-step questionnaire covering identity, cloud, endpoints, network, SIEM, AppSec, and data protection — using real product names, not capability abstractions.',
@@ -57,6 +60,11 @@ export const experiences = [
     location: 'Bellevue, WA',
     period: 'September 2024 - August 2025',
     summary: 'One of three founding engineers on the Security and Compliance practice. Subject Matter Expert for Defender for Office 365 and Purview.',
+    resumeBullets: [
+      'Founding engineer on Microsoft\'s Security and Compliance practice. Built escalation workflows and playbooks as the team grew from 3 to 20+ engineers.',
+      'Investigated phishing, malware, and BEC incidents daily using Threat Explorer, Message Trace, and Advanced Hunting. Configured anti-phishing, Safe Attachments, Safe Links, and DMARC/DKIM/SPF across GCC and GCC High tenants.',
+      'Configured DLP policies, sensitivity labels, retention policies, and insider risk management in Purview for FedRAMP, NIST, HIPAA, and PCI-DSS environments.'
+    ],
     responsibilities: [
       'Founding engineer on the Security and Compliance practice at Microsoft. Built team processes, escalation paths, and playbooks from scratch as the team grew from 3 to 20+ engineers.',
       'SME for Microsoft Defender for Office 365 and Microsoft Purview. Primary escalation contact for complex MDO and Purview cases across GCC and GCC High tenants.',
@@ -97,6 +105,11 @@ export const experiences = [
     location: 'Bellevue, WA',
     period: 'December 2023 - September 2024',
     summary: 'Subject Matter Expert for Microsoft Defender for Endpoint. Tier 2/3 escalations, internal playbooks, and KQL threat hunting across GCC and GCC High.',
+    resumeBullets: [
+      'Investigated active endpoint incidents alongside customers: device logs, network traces, KQL hunting in Advanced Hunting, and suspicious file triage through MDE.',
+      'Deployed all 19 ASR rules via Intune, Group Policy, and PowerShell. Ran Live Response sessions for forensic collection and remediation. Created custom IoC indicators for threat containment.',
+      'Administered Intune endpoint security policies across GCC and GCC High tenants: Defender Antivirus, Firewall, disk encryption, compliance policies, and Conditional Access.'
+    ],
     responsibilities: [
       'Investigated active endpoint incidents with customers: collected device logs from Event Viewer, captured network traces, ran KQL hunts in Advanced Hunting, and triaged suspicious files through MDE.',
       'Walked customers through alerts they received: explained triggers, detonation results, and verdicts, then guided remediation.',
@@ -137,6 +150,10 @@ export const experiences = [
     location: 'Bellevue, WA',
     period: 'December 2018 - December 2023',
     summary: 'Led 20+ student technicians providing Tier 1/2 IT support campus-wide. SCCM deployment, Active Directory administration, and escalation resolution.',
+    resumeBullets: [
+      'Managed 20+ student technicians providing Tier 1/2 IT support across campus.',
+      'Deployed Windows workstations via SCCM, managed macOS with Jamf Pro, and administered Active Directory.'
+    ],
     responsibilities: [
       'Managed 20+ student technicians providing Tier 1/2 IT support across campus.',
       'Oversaw three lab environments: hardware setup, software deployment, and device lifecycle.',
