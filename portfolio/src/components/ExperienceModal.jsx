@@ -24,13 +24,11 @@ function ExperienceModal({ experience, onClose }) {
         <button className="modal-close" onClick={onClose}>&times;</button>
 
         <div className="modal-header">
-          <div className="modal-header-left">
-            <h2 className="modal-title">{experience.title}</h2>
-            <div className="modal-company">{experience.company}</div>
-          </div>
-          <div className="modal-header-right">
-            <div className="modal-location">{experience.location}</div>
-            <div className="modal-period">{experience.period}</div>
+          <h2 className="modal-title">{experience.title}</h2>
+          <div className="modal-company">{experience.company}</div>
+          <div className="modal-meta">
+            <span className="modal-location">{experience.location}</span>
+            <span className="modal-period">{experience.period}</span>
           </div>
         </div>
 
@@ -50,7 +48,7 @@ function ExperienceModal({ experience, onClose }) {
             <h3>Technical Skills</h3>
             <div className="modal-tags">
               {experience.technicalSkills.map((skill, i) => (
-                <span key={i} className="modal-tag">{skill}</span>
+                <span key={i} className="modal-tag tag-highlight">{skill}</span>
               ))}
             </div>
           </div>
@@ -61,7 +59,7 @@ function ExperienceModal({ experience, onClose }) {
             <h3>Soft Skills</h3>
             <div className="modal-tags">
               {experience.softSkills.map((skill, i) => (
-                <span key={i} className="modal-tag tag-soft">{skill}</span>
+                <span key={i} className="modal-tag tag-highlight">{skill}</span>
               ))}
             </div>
           </div>
@@ -72,17 +70,9 @@ function ExperienceModal({ experience, onClose }) {
             <h3>Frameworks</h3>
             <div className="modal-tags">
               {experience.frameworks.map((fw, i) => (
-                <span
-                  key={i}
-                  className={`modal-tag ${fw.role === 'primary' ? 'tag-primary' : 'tag-familiar'}`}
-                >
-                  {fw.name}
-                </span>
+                <span key={i} className="modal-tag tag-highlight">{fw}</span>
               ))}
             </div>
-            {experience.frameworkNote && (
-              <p className="framework-note">{experience.frameworkNote}</p>
-            )}
           </div>
         )}
       </div>

@@ -16,8 +16,13 @@
   --border-subtle: rgba(20, 184, 166, 0.15);
 }
 
+html {
+  overflow-x: hidden;
+  font-size: clamp(14px, 1.5vw, 16px);
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--primary-bg);
   color: var(--text-primary);
   line-height: 1.6;

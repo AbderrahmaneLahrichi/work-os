@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { smoothScroll } from '../utils/helpers'
 import './Navigation.css'
 
@@ -5,9 +6,10 @@ function Navigation({ activeSection }) {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
     { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'learning', label: 'Learning' }
+    { id: 'learning', label: 'Learning' },
+    { id: 'about', label: 'About' }
   ]
 
   return (
@@ -24,6 +26,11 @@ function Navigation({ activeSection }) {
             </a>
           </li>
         ))}
+        <li>
+          <Link to="/docs" className="nav-docs-link">
+            Documentation
+          </Link>
+        </li>
       </ul>
     </nav>
   )

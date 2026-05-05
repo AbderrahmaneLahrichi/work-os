@@ -71,6 +71,10 @@
   color: var(--accent-secondary);
 }
 
+.project-link-primary {
+  font-weight: 600;
+}
+
 @media (max-width: 600px) {
   .projects-grid {
     grid-template-columns: 1fr;

@@ -1,18 +1,52 @@
 import { useEffect, useRef } from 'react'
 import './NetworkNodes.css'
 
-const NODE_COUNT = 180
-const CONNECTION_DISTANCE = 180
+function getNodeCount() {
+  const w = window.innerWidth
+  const pages = Math.max(document.body.scrollHeight, window.innerHeight * 3) / window.innerHeight
+  const scale = Math.ceil(pages)
+  if (w <= 600) return 40 * scale
+  if (w <= 900) return 60 * scale
+  if (w <= 1200) return 80 * scale
+  return 100 * scale
+}
+
+function getConnectionDistance() {
+  return window.innerWidth <= 600 ? 120 : 180
+}
 
 function NetworkNodes() {
   const canvasRef = useRef(null)
   const nodesRef = useRef([])
   const animRef = useRef(null)
-  const scrollOffsetRef = useRef(0)
+  const scrollRef = useRef(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
+    let nodeCount = getNodeCount()
+    let connDist = getConnectionDistance()
+
+    // Spread nodes across the full document height
+    const getPageHeight = () => {
+      return Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        window.innerHeight * 3
+      )
+    }
+
+    const initNodes = (count) => {
+      const w = window.innerWidth
+      const totalH = getPageHeight()
+      return Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * totalH,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 2.5 + 1.5
+      }))
+    }
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1
@@ -20,85 +54,79 @@ function NetworkNodes() {
       canvas.height = window.innerHeight * dpr
       canvas.style.width = window.innerWidth + 'px'
       canvas.style.height = window.innerHeight + 'px'
-      ctx.scale(dpr, dpr)
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
-      // Redistribute nodes on resize
-      const w = window.innerWidth
-      const h = window.innerHeight
-      nodesRef.current.forEach(node => {
-        node.x = Math.random() * w
-        node.y = Math.random() * h
-      })
+      const newCount = getNodeCount()
+      connDist = getConnectionDistance()
+      if (newCount !== nodeCount) {
+        nodeCount = newCount
+        nodesRef.current = initNodes(nodeCount)
+      }
     }
 
-    // Initialize nodes with varying depth layers for parallax
-    nodesRef.current = Array.from({ length: NODE_COUNT }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      r: Math.random() * 2.5 + 1.5,
-      depth: Math.random() * 0.4 + 0.1 // 0.1 to 0.5 parallax factor
-    }))
-
+    nodesRef.current = initNodes(nodeCount)
     resize()
     window.addEventListener('resize', resize)
 
     const handleScroll = () => {
-      scrollOffsetRef.current = window.scrollY
+      scrollRef.current = window.scrollY
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
 
     const animate = () => {
       const w = window.innerWidth
       const h = window.innerHeight
-      const scroll = scrollOffsetRef.current
+      const scroll = scrollRef.current
+      const totalH = getPageHeight()
       ctx.clearRect(0, 0, w, h)
       const nodes = nodesRef.current
+      const connDistSq = connDist * connDist
 
-      // Update base positions
+      // Update positions — nodes float across the full page
       for (const node of nodes) {
         node.x += node.vx
         node.y += node.vy
         if (node.x < 0 || node.x > w) node.vx *= -1
-        if (node.y < 0 || node.y > h) node.vy *= -1
+        if (node.y < 0 || node.y > totalH) node.vy *= -1
       }
 
-      // Calculate parallax-shifted positions
-      const shifted = nodes.map(node => ({
-        x: node.x,
-        y: node.y - scroll * node.depth,
-        r: node.r,
-        depth: node.depth
-      }))
+      // Only process nodes visible in the current viewport (with buffer)
+      const viewTop = scroll - 200
+      const viewBottom = scroll + h + 200
+      const visible = []
+      for (const node of nodes) {
+        if (node.y >= viewTop && node.y <= viewBottom) {
+          visible.push(node)
+        }
+      }
 
-      // Draw connections using shifted positions
-      for (let i = 0; i < shifted.length; i++) {
-        // Skip nodes that are off screen
-        if (shifted[i].y < -100 || shifted[i].y > h + 100) continue
-        for (let j = i + 1; j < shifted.length; j++) {
-          if (shifted[j].y < -100 || shifted[j].y > h + 100) continue
-          const dx = shifted[i].x - shifted[j].x
-          const dy = shifted[i].y - shifted[j].y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < CONNECTION_DISTANCE) {
-            const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.3
+      // Draw connections between visible nodes
+      ctx.lineWidth = 0.8
+      for (let i = 0; i < visible.length; i++) {
+        const screenY_i = visible[i].y - scroll
+        const sx = visible[i].x
+        for (let j = i + 1; j < visible.length; j++) {
+          const screenY_j = visible[j].y - scroll
+          const dx = sx - visible[j].x
+          const dy = screenY_i - screenY_j
+          const distSq = dx * dx + dy * dy
+          if (distSq < connDistSq) {
+            const opacity = (1 - Math.sqrt(distSq) / connDist) * 0.45
             ctx.beginPath()
-            ctx.moveTo(shifted[i].x, shifted[i].y)
-            ctx.lineTo(shifted[j].x, shifted[j].y)
+            ctx.moveTo(sx, screenY_i)
+            ctx.lineTo(visible[j].x, screenY_j)
             ctx.strokeStyle = `rgba(20, 184, 166, ${opacity})`
-            ctx.lineWidth = 0.8
             ctx.stroke()
           }
         }
       }
 
-      // Draw nodes at shifted positions
-      for (const node of shifted) {
-        if (node.y < -50 || node.y > h + 50) continue
+      // Draw visible nodes
+      ctx.fillStyle = 'rgba(20, 184, 166, 0.65)'
+      for (const node of visible) {
+        const screenY = node.y - scroll
         ctx.beginPath()
-        ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(20, 184, 166, 0.4)'
+        ctx.arc(node.x, screenY, node.r, 0, Math.PI * 2)
         ctx.fill()
       }
 

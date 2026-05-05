@@ -1,0 +1,212 @@
+.mde-docs-intro {
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.mde-docs-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Sidebar */
+.mde-docs-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: sticky;
+  top: 5rem;
+}
+
+.mde-sidebar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  gap: 0.2rem;
+}
+
+.mde-sidebar-btn:hover {
+  background: var(--card-bg);
+  border-color: var(--border-subtle);
+}
+
+.mde-sidebar-btn.active {
+  background: var(--card-bg);
+  border-color: var(--accent-primary);
+}
+
+.mde-sidebar-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.mde-sidebar-btn.active .mde-sidebar-label {
+  color: var(--accent-primary);
+}
+
+.mde-sidebar-table {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+}
+
+/* Content area */
+.mde-docs-content {
+  min-width: 0;
+}
+
+.mde-category-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.mde-category-title {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.mde-table-badge {
+  font-size: 0.75rem;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  color: var(--accent-primary);
+  background: rgba(20, 184, 166, 0.08);
+  border: 1px solid var(--border-subtle);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.mde-category-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mde-queries {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mde-query-block {
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s ease;
+}
+
+.mde-query-block:hover {
+  border-color: rgba(20, 184, 166, 0.35);
+}
+
+.mde-query-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.25rem 0.5rem;
+  gap: 1rem;
+}
+
+.mde-query-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.mde-copy-btn {
+  background: rgba(20, 184, 166, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-primary);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.mde-copy-btn:hover {
+  background: rgba(20, 184, 166, 0.2);
+  border-color: var(--accent-primary);
+}
+
+.mde-query-description {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding: 0 1.25rem 1rem;
+}
+
+.mde-code-block {
+  background: #0d1117;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.mde-code-block pre {
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.mde-code-block code {
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.8rem;
+  color: #c9d1d9;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .mde-docs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mde-docs-sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .mde-sidebar-btn {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .mde-sidebar-table {
+    display: none;
+  }
+
+  .mde-category-header {
+    flex-wrap: wrap;
+  }
+
+  .mde-code-block pre {
+    padding: 1rem;
+  }
+
+  .mde-code-block code {
+    font-size: 0.75rem;
+  }
+}

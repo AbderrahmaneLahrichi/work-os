@@ -24,13 +24,9 @@ function Experience() {
             ref={el => cardsRef.current[index] = el}
             onClick={() => setSelectedExperience(exp)}
           >
-            <div className="card-header">
-              <h3>{exp.title}</h3>
-              <div className="card-header-right">
-                <div className="company">{exp.company} | {exp.location}</div>
-                <div className="date">{exp.period}</div>
-              </div>
-            </div>
+            <h3>{exp.title}</h3>
+            <div className="company">{exp.company}</div>
+            <div className="card-period">{exp.period}</div>
             <p className="summary">{exp.summary}</p>
             <span className="card-hint">Click for details</span>
           </div>

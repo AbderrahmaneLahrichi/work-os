@@ -2,14 +2,11 @@
   position: fixed;
   top: 0;
   width: 100%;
-  backdrop-filter: blur(12px);
-  padding: 1rem 2rem;
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.25rem 2rem;
   z-index: 1000;
   border-bottom: 1px solid var(--border-subtle);
-  background:
-    radial-gradient(ellipse 40% 100% at 30% 50%, rgba(20, 184, 166, 0.06), transparent 60%),
-    radial-gradient(ellipse 40% 100% at 70% 50%, rgba(15, 118, 110, 0.04), transparent 60%),
-    rgba(17, 24, 39, 0.9);
 }
 
 .navigation ul {
@@ -46,6 +43,23 @@
 .navigation a:hover,
 .navigation a.active {
   color: var(--accent-primary);
+}
+
+.nav-docs-link {
+  color: var(--accent-primary) !important;
+  border: 1px solid var(--border-subtle);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease !important;
+}
+
+.nav-docs-link:hover {
+  background: rgba(20, 184, 166, 0.1);
+  border-color: var(--accent-primary) !important;
+}
+
+.nav-docs-link::after {
+  display: none !important;
 }
 
 @media (max-width: 600px) {

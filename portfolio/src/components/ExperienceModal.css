@@ -55,16 +55,8 @@
 }
 
 .modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.5rem;
   margin-bottom: 1.5rem;
   padding-right: 2rem;
-}
-
-.modal-header-left {
-  flex: 1;
 }
 
 .modal-title {
@@ -76,19 +68,17 @@
 .modal-company {
   color: var(--accent-secondary);
   font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.modal-header-right {
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.modal-location {
+.modal-meta {
+  display: flex;
+  gap: 1rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
-  margin-bottom: 0.2rem;
 }
 
+.modal-location,
 .modal-period {
   color: var(--text-secondary);
   font-size: 0.9rem;
@@ -147,22 +137,11 @@
   color: var(--text-primary);
 }
 
-.modal-tag.tag-primary {
-  background: rgba(20, 184, 166, 0.15);
+.modal-tag.tag-highlight {
+  background: rgba(20, 184, 166, 0.2);
   border-color: var(--accent-primary);
   color: var(--accent-secondary);
-}
-
-.modal-tag.tag-soft {
-  background: rgba(94, 234, 212, 0.08);
-  border-color: rgba(94, 234, 212, 0.2);
-  color: var(--accent-secondary);
-}
-
-.modal-tag.tag-familiar {
-  background: rgba(20, 184, 166, 0.05);
-  border-color: var(--border-subtle);
-  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .framework-note {
@@ -188,12 +167,11 @@
   }
 
   .modal-header {
-    flex-direction: column;
-    gap: 0.5rem;
     padding-right: 2rem;
   }
 
-  .modal-header-right {
-    text-align: left;
+  .modal-meta {
+    flex-direction: column;
+    gap: 0.2rem;
   }
 }

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { projects } from '../data/portfolioData'
 import { observeElements } from '../utils/helpers'
 import './Projects.css'
@@ -31,8 +32,13 @@ function Projects() {
               </div>
             )}
             <div className="project-links">
+              {project.slug && (
+                <Link to={project.slug} className="project-link project-link-primary">
+                  View Project &rarr;
+                </Link>
+              )}
               <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
-                View on GitHub &rarr;
+                GitHub &rarr;
               </a>
             </div>
           </div>
